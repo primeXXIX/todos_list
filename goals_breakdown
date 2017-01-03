@@ -1,0 +1,24 @@
+# GOALS
+
+Tuesday
+  Set up React (create-react-app)
+  Determine components
+  Create table setup with array grid
+  Find images for cards
+  Create internal 4 character naming system for values of cards (shape: < ~ 0, color: R G P, number: 1 2 3, shading: o s t)
+  
+Wednesday
+  Build out components (functionality)
+  Build out buttons and selection
+  Game logic start
+
+Thursday
+  Score tracker
+  Game logic cont.
+
+Friday
+  Game Logic finish
+  Make pretty
+  
+  
+Don't forget stretch goals! :)
