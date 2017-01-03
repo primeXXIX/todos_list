@@ -20,6 +20,7 @@ Set is a game with a small set of rules. This game can be implemented in any tec
 ### Optional/Stretch goals
 - [ ] Do not use images to render the cards. Use CSS shape tricks to render the different patterns on the cards.
 - [ ] Implement multiplayer set, where multiple players on different computers can join and simultaneously join the game. 
+- [ ] Hint button; first hint tells number of sets on table, second hint lights up the border of cards in a set, third hints tells you to go home.
 
 ## Quality Rubric
 - [ ] Game logic is separated from the rendering logic.
