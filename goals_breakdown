@@ -8,7 +8,6 @@ Tuesday
     Players?
   Create table setup with array grid
   Find images for cards
-  Create internal 4 character naming system for values of cards (number: 1 2 3, shape: < ~ 0, color: R G P, shading: o s t)
   
 Wednesday
   Build out components (functionality)
