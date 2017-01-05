@@ -15,9 +15,11 @@
   height: 250px;
   width: 200px;
   box-sizing: border-box;
-  border: 5px solid black;
+  border: 5px solid white;
+  /*filter: invert(100%)*/
 }
 
 .square:hover {
-  background-color: #80cd92;
+  /*background-color: #80cd92;*/
+  filter: invert(100%);
 }

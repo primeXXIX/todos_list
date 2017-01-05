@@ -9,11 +9,11 @@ export default class Card extends Component {
   }
 
   render() {
-    const { image, shape, number, shading, color } = this.props
+    const { image } = this.props
 
     return (
       <div className="square" onClick={this.handleClick.bind(this)}>
-        {image} {shape} {number} {shading} {color}
+        <img src={process.env.PUBLIC_URL + image} style={{width: 190, height: 240}} alt="smiley face"/>
       </div>
     )
   }
