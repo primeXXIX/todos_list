@@ -15,7 +15,8 @@ export default class Board extends Component {
     this.state = {
       selectedCards: [],
       cardsInPlay: [null, null, null, null, null, null, null, null, null, null, null, null], // shuffledCards.slice(0, 6),
-      deck: shuffledCards // .slice(6)
+      deck: shuffledCards,
+      score: 0 // .slice(6)
     }
   }
 
@@ -24,34 +25,32 @@ export default class Board extends Component {
         if (this.state.cardsInPlay[i] === null) {
           // deal new card
           let dealtCard = this.state.deck.pop()
-          this.state.cardsInPlay[i] = dealtCard
-              // and update deck
-             //  this.state.deck = this.state.deck.filter(function(val) {
-             //    return val.image !== dealtCard.image
-             //  })
-          this.update(this.state.deck)
+          let tempCardsInPlay = this.state.cardsInPlay
+          tempCardsInPlay[i] = dealtCard
+          this.setState({cardsInPlay: tempCardsInPlay})
         }
     }
   }
 
   boardHandleClick( card ) {
 
-//if collection  .includes card, _.pull card from collection
-// otherwise run function as normal
-
-    // if ( this.state.selectedCards.includes(card) ) {
-    //   this.state.selectedCards.push(card)
-    //   _.pull(this.state.selectedCards, card)
-    // }
-
+      for (var i=0; i<this.state.selectedCards.length; i++) {
+        if ( _.isEqual(this.state.selectedCards[i], card) ) {
+          this.state.selectedCards[i] = card
+        }
+      }
+      if ( this.state.selectedCards.includes(card) ) {
+         _.pull(this.state.selectedCards, card)
+      }
+      else if ( !this.state.selectedCards.includes(card) ) {
       // _.pull(this.state.selectedCards, card)
       this.state.selectedCards.push(card)
-      // _.pull(this.state.selectedCards, card)
+      //_.pull(this.state.selectedCards, card)
       console.log( this.state.selectedCards )
       if (this.state.selectedCards.length === 3) {
         // if set is true, change selcted cards to null in cardsInPlay and run deal
         if ( set(this.state.selectedCards) ) {
-
+          this.setState( {score: this.state.score + 1} )
           let newCardsInPlay = this.state.cardsInPlay
 
           for (var i = 0; i < newCardsInPlay.length; i++) {
@@ -61,7 +60,7 @@ export default class Board extends Component {
               }
             }
           }
-          this.setState(Object.assign(this.state, {cardsInPlay: newCardsInPlay}))
+          this.setState( {cardsInPlay: newCardsInPlay} )
         }
         this.state.selectedCards = []
         const selectedCardDivs = Array.from(document.getElementsByClassName('selected'))
@@ -69,32 +68,29 @@ export default class Board extends Component {
         this.deal()
       }
     }
-
-  //updates current deck once cards are drawn
-  update(deck) {
-      this.setState(Object.assign(this.state, {deck: deck}))
-    }
-
+  }
 
    // clears board, starts with original deck, shuffles, assigned to new game button
-   reset() {
+    reset() {
+      // this.setState({
+      //   cardsInPlay: [null, null, null, null, null, null, null, null, null, null, null, null],
+      //   deck: _.shuffle(cards),
+      //   selectedCards: []
+      // })
       this.state.cardsInPlay = [null, null, null, null, null, null, null, null, null, null, null, null]
       this.state.deck = _.shuffle(cards)
       this.state.selectedCards = []
-      this.update(this.state.deck)
+      this.state.score = 0
       this.deal()
-   }
-
+    }
 
   render() {
     const  cards  = this.state.cardsInPlay
 
-    // let dealButton = <button className="dealButton" onClick={this.deal.bind(this)}> Lets make a deal </button>
-
     let resetButton = <button className="resetButton" onClick={this.reset.bind(this)}> New Game</button>
 
-    // can click function
-    // const allowedToClick = this.state.cardsInPlay
+
+    let scoreDiv = <div className="score"> {this.state.score} </div>
 
     return (
       <div className="board">
@@ -104,8 +100,7 @@ export default class Board extends Component {
           )
         }
         {resetButton}
-        {/* {dealButton} */}
-
+        {scoreDiv}
       </div>
     )
   }

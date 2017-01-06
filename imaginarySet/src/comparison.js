@@ -53,13 +53,12 @@ export default function set(setArray) {
   compareNumber(setArray)
   // if not a Set display "Nope nope nope"
   if (comparisonArray.includes(false)) {
-    alert("Nope nope nope")
+    //alert("Nope nope nope")
     setArray = []
     return false
   }
-  // else, remove cards from board and deal new cards and give point
   else {
-    alert("Congraturations. You winner!!@")
+    //alert("Congraturations. You winner!!@")
     return true
   }
 

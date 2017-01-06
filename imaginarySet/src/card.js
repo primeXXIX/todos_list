@@ -27,8 +27,25 @@ export default class Card extends Component {
           {cardImage}
       </div>
 
+      // <div class="flip">
+      //     <div class="card">
+      //         <div class="face front">
+      //             Front
+      //         </div>
+      //         <div class="face back">
+      //             Back
+      //         </div>
+      //     </div>
+      // </div>
     )
   }
 }
+
+    // $('.flip').click(function(){
+    // 		$(this).find('.card').addClass('flipped').mouseleave(function(){
+    //         $(this).removeClass('flipped');
+    //     });
+    //     return false;
+    // });
 
 // we need our div to switch between classes depending on if the image exists.
