@@ -1,5 +1,4 @@
 let comparisonArray = [false, false, false, false]
-let isSet = false
 
 function compareColor(setArray) {
   if (setArray[0].color === setArray[1].color && setArray[1].color === setArray[2].color) {
@@ -56,12 +55,12 @@ export default function set(setArray) {
   if (comparisonArray.includes(false)) {
     alert("Nope nope nope")
     setArray = []
-    isSet = false
+    return false
   }
   // else, remove cards from board and deal new cards and give point
   else {
     alert("Congraturations. You winner!!@")
-    isSet = true
+    return true
   }
-  console.log(isSet);
+
 }

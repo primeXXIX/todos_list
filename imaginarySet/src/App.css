@@ -5,21 +5,29 @@
 .board {
   display: flex;
   width: 600px;
-  height: 1000px;
+  height: 970px;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
 
 .square {
-  height: 250px;
+  height: 245px;
   width: 200px;
   box-sizing: border-box;
   border: 5px solid white;
   /*filter: invert(100%)*/
 }
 
-.square:hover {
+.square:hover,.selected{
   /*background-color: #80cd92;*/
   filter: invert(100%);
+}
+
+.cardback {
+  height: 245px;
+  width: 200px;
+  box-sizing: border-box;
+  border: 5px solid white;
+  pointer-events: none;
 }

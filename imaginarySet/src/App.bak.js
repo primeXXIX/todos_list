@@ -31,12 +31,12 @@ class App extends Component {
   //   }
   // }
 
-//updates current deck once cards are drawn
-  update(card) {
-    const cards = this.state.cards
-    cards.push(card)
-    this.setState(Object.assign(this.state, {cards: cards}))
-  }
+// //updates current deck once cards are drawn
+//   update(card) {
+//     const cards = this.state.cards
+//     cards.push(card)
+//     this.setState(Object.assign(this.state, {cards: cards}))
+//   }
 
 // push item clicked into setArray
   // handleClick(index) {
@@ -53,40 +53,40 @@ class App extends Component {
 
 
     // replaces cards in array only for null values (for loop)
-    function deal() {
-        for ( var i = currentDeck.length; i >= 0; i--) {
-            if (board[i] === null) {
-              // deal new card
-              let card = currentDeck.pop()
-              board[i] = card
-
-              // and update deck
-              currentDeck = currentDeck.filter(function(val) {
-                return val.image !== card.image
-              })
-              this.update(card)
-            }
-        }
-        console.log(board)
-    }
-
+    // function deal() {
+    //     for ( var i = currentDeck.length; i >= 0; i--) {
+    //         if (board[i] === null) {
+    //           // deal new card
+    //           let card = currentDeck.pop()
+    //           board[i] = card
+    //
+    //           // and update deck
+    //           currentDeck = currentDeck.filter(function(val) {
+    //             return val.image !== card.image
+    //           })
+    //           this.update(card)
+    //         }
+    //     }
+    //     console.log(board)
+    // }
+    //
 
 
 
     // start new game
-    function reset() {
-    // clears board, starts with original deck, shuffles, assigned to new game button
-          board = [null,null,null,null,null,null,null,null,null,null,null,null]
-          setArray = []
-          currentDeck = _.shuffle(deck)
-          this.update(board)
-      }
+    // function reset() {
+    // // clears board, starts with original deck, shuffles, assigned to new game button
+    //       board = [null,null,null,null,null,null,null,null,null,null,null,null]
+    //       setArray = []
+    //       currentDeck = _.shuffle(deck)
+    //       this.update(board)
+    //   }
 
 
 
 
-    let dealButton = <button className="dealButton" onClick={deal.bind(this)}> Lets make a deal </button>
-    let resetButton = <button className="resetButton" onClick={reset.bind(this)}> Clear Board</button>
+    // let dealButton = <button className="dealButton" onClick={deal.bind(this)}> Lets make a deal </button>
+    // let resetButton = <button className="resetButton" onClick={reset.bind(this)}> Clear Board</button>
 
     // Multiple nested arrays method
     //   deal() {
@@ -168,19 +168,19 @@ class App extends Component {
 
 
 
-    function set() {
-      // if not a Set display "Nope nope nope"
-      if (comparisonArray.includes(false)) {
-        setArray = []
-        alert("Nope nope nope")
-      }
-      // else, remove cards from board and deal new cards and give point
-      else {
-        board.filter(setArray)
-        deal()
-        score + 1
-      }
-    }
+    // function set() {
+    //   // if not a Set display "Nope nope nope"
+    //   if (comparisonArray.includes(false)) {
+    //     setArray = []
+    //     alert("Nope nope nope")
+    //   }
+    //   // else, remove cards from board and deal new cards and give point
+    //   else {
+    //     board.filter(setArray)
+    //     deal()
+    //     score + 1
+    //   }
+    // }
 
 //
 //     return (
