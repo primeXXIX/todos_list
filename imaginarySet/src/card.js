@@ -16,9 +16,9 @@ export default class Card extends Component {
   render() {
     const { image } = this.props
 
-    let cardBack = <img src={process.env.PUBLIC_URL + "/cards/poke.jpg"} style={{width: 190, height: 235}} alt="broken" />
+    let cardBack = <img src={process.env.PUBLIC_URL + "/cards/poke.jpg"} style={{width: 180, height: 225}} alt="broken" />
 
-    let cardImage = image ? <img src={process.env.PUBLIC_URL + image} style={{width: 190, height: 235}} alt="broken" /> : cardBack
+    let cardImage = image ? <img className="imageClass" src={process.env.PUBLIC_URL + image} style={{width: 180, height: 225}} alt="broken" /> : cardBack
 
 
     return (

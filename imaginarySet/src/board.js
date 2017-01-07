@@ -21,24 +21,28 @@ export default class Board extends Component {
   }
 
   deal() {
+    console.log('entered deal()')
+    let tempCardsInPlay = this.state.cardsInPlay
     for ( var i = 0; i < this.state.cardsInPlay.length; i++) {
         if (this.state.cardsInPlay[i] === null) {
           // deal new card
           let dealtCard = this.state.deck.pop()
-          let tempCardsInPlay = this.state.cardsInPlay
           tempCardsInPlay[i] = dealtCard
-          this.setState({cardsInPlay: tempCardsInPlay})
+
         }
     }
+    console.log('dealt cards are ::', tempCardsInPlay)
+    this.setState({cardsInPlay: tempCardsInPlay})
   }
 
   boardHandleClick( card ) {
-
+      let newSelectedCards = this.state.selectedCards
       for (var i=0; i<this.state.selectedCards.length; i++) {
         if ( _.isEqual(this.state.selectedCards[i], card) ) {
-          this.state.selectedCards[i] = card
+          newSelectedCards[i] = card
         }
       }
+      this.setState({selectedCards: newSelectedCards})
       if ( this.state.selectedCards.includes(card) ) {
          _.pull(this.state.selectedCards, card)
       }
@@ -62,7 +66,7 @@ export default class Board extends Component {
           }
           this.setState( {cardsInPlay: newCardsInPlay} )
         }
-        this.state.selectedCards = []
+        this.setState({selectedCards:[]})
         const selectedCardDivs = Array.from(document.getElementsByClassName('selected'))
         selectedCardDivs.forEach(div => div.classList.remove('selected'))
         this.deal()
@@ -72,11 +76,14 @@ export default class Board extends Component {
 
    // clears board, starts with original deck, shuffles, assigned to new game button
     reset() {
+
       // this.setState({
       //   cardsInPlay: [null, null, null, null, null, null, null, null, null, null, null, null],
       //   deck: _.shuffle(cards),
-      //   selectedCards: []
+      //   selectedCards: [],
+      //   score: 0
       // })
+
       this.state.cardsInPlay = [null, null, null, null, null, null, null, null, null, null, null, null]
       this.state.deck = _.shuffle(cards)
       this.state.selectedCards = []
@@ -84,13 +91,23 @@ export default class Board extends Component {
       this.deal()
     }
 
+  play() {
+     var audio = document.getElementById("audio")
+     audio.play()
+   }
+
+   resetButtonClick () {
+     this.play()
+     this.reset ()
+   }
+
   render() {
     const  cards  = this.state.cardsInPlay
 
-    let resetButton = <button className="resetButton" onClick={this.reset.bind(this)}> New Game</button>
-
+    let resetButton = <button className="resetButton" onClick={this.resetButtonClick.bind(this)}> New Game</button>
 
     let scoreDiv = <div className="score"> {this.state.score} </div>
+
 
     return (
       <div className="board">
@@ -99,7 +116,9 @@ export default class Board extends Component {
             <Card {...card} key={`card-${index}`} boardHandleClick={this.boardHandleClick.bind( this )} />
           )
         }
+
         {resetButton}
+        <audio id="audio"  src="http://www.moviesoundscentral.com/sounds/playgames.wav" ></audio>
         {scoreDiv}
       </div>
     )
