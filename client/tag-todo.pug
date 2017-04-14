@@ -1,0 +1,13 @@
+'use strict';
+var self = this;
+var api = self.opts;
+
+todo
+    form(onsubmit="{ add }")
+        input(type="text", placeholder="Needs to be done", name="todo")
+    ul
+        li(each="{items}")
+            span {title}
+
+    script
+        include tag-todo.js
