@@ -1,4 +1,4 @@
-To Do List
+**To Do List**
 
 Challenge Rating
 
@@ -27,7 +27,7 @@ You may design your own UI, but it's probably better to copy someone else's desi
 
 
 
-##Context
+**Context**
 
 One of the main skills we seek to learn here at Learners Guild is the creation of full-stack web applications. This project is an excellent opportunity to see how all your various foundational skills will come together into a complete, functioning website.
 
@@ -40,33 +40,33 @@ What should be tested and how?
 What is the UI needed to satisfy this user story?
 Specifications
 
-##User Stories
+**User Stories**
 
- []Users can create to do list items.
- []Users can delete unwanted to do list items.
- []Users can check items off as completed.
- []Users can rearrange to do list items.
- []Users can edit the text on existing to do list items.
- []When an error occurs, the user is notified with modal message.*
+ [ ]Users can create to do list items.
+ [ ]Users can delete unwanted to do list items.
+ [ ]Users can check items off as completed.
+ [ ]Users can rearrange to do list items.
+ [ ]Users can edit the text on existing to do list items.
+ [ ]When an error occurs, the user is notified with modal message.*
 
 * A quick and easy way to do this is to use the alert() function.
 
-##Additional
+**Additional**
 
- []Backend uses Node.js and Express.
- []App persists to do list items in a database.
- []Code uses a linter and there are no linting errors.
- []There are thorough tests for all functionality involved in interacting with the database.
- []All tests are passing.
- []Repository includes a README file with basic installation and setup.
- []All dependencies are properly declared in package.json.
- []All major features are added via pull requests with a clear description and concise commit messages.
- []Every pull request has been reviewed by at least one other person.
- []The artifact produced is properly licensed, preferably with the MIT license.
+ [ ]Backend uses Node.js and Express.
+ [ ]App persists to do list items in a database.
+ [ ]Code uses a linter and there are no linting errors.
+ [ ]There are thorough tests for all functionality involved in interacting with the database.
+ [ ]All tests are passing.
+ [ ]Repository includes a README file with basic installation and setup.
+ [ ]All dependencies are properly declared in package.json.
+ [ ]All major features are added via pull requests with a clear description and concise commit messages.
+ [ ]Every pull request has been reviewed by at least one other person.
+ [ ]The artifact produced is properly licensed, preferably with the MIT license.
 
-##Stretch
+**Stretch**
 
- []App is deployed on Heroku.
- []Users can create multiple to-do lists.
- []Users have their own account and can sign up and log in/out.
- []App is written with ES6 and compiled using babel.
+ [ ]App is deployed on Heroku.
+ [ ]Users can create multiple to-do lists.
+ [ ]Users have their own account and can sign up and log in/out.
+ [ ]App is written with ES6 and compiled using babel.
